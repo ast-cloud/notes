@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block pagetitle %}Add New Note{% endblock pagetitle %}
+
+{% block mainbody %}
+
+
+
+<form action="/newnote" method="POST" class="text-center" >
+    {% csrf_token %}
+    
+    <div class="form-group container mt-5">
+        <label class="float-left" for="text" style="font-family: sans-serif; font-size:large">Write your note</label>
+        <textarea class="form-control" rows="10" id="note" style="border-style: solid; border-width: 2px; border-color:black ;" name="note" placeholder="Write something..."> </textarea>
+    </div>
+    <button type="submit" class="btn btn-info">Create</button>
+</form>
+
+
+
+{% endblock mainbody %}
