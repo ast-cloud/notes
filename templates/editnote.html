@@ -14,9 +14,12 @@
 
     <style>
         body {
-            background-image: url('/static/bg1.jpg');
+            background-image: url('https://ast-cloud.github.io/notes/static/bg1.jpg');
         }
     </style>
+
+    <link rel="shortcut icon" type="image/jpg" href="https://ast-cloud.github.io/notes/static/notesicon.jpg" />
+
 
 
 </head>
@@ -66,14 +69,15 @@
 
 
 
-<form action="/editnote/{{nid}}" method="POST" class="text-center" >
-    {% csrf_token %}
-    <div class="form-group container mt-5">
-        <label class="float-left" for="text" style="font-family: sans-serif; font-size:large">Edit your note</label>
-        <textarea rows="10" class="form-control" id="note" name="note" value="{{note}}" placeholder="Write something...">{{note}}</textarea>
-    </div>
-    <button type="submit" class="btn btn-info">Save</button>
-</form>
+    <form action="/editnote/{{nid}}" method="POST" class="text-center">
+        {% csrf_token %}
+        <div class="form-group container mt-5">
+            <label class="float-left" for="text" style="font-family: sans-serif; font-size:large">Edit your note</label>
+            <textarea rows="10" class="form-control" id="note" name="note" value="{{note}}"
+                placeholder="Write something...">{{note}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-info">Save</button>
+    </form>
 
 
 
