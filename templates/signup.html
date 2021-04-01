@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Notes - Login</title>
+    <title>Notes - New User</title>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -81,50 +81,49 @@
     </style>
     <!-- Custom styles for this template -->
     <!-- <link href="signin.css" rel="stylesheet"> -->
-    <link rel="shortcut icon" type="image/jpg" href="/static/notes1.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="/static/notes1.jpg" />
+
 </head>
 
 <body>
 
-
     <!-- {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-{{message.tags}} alert-dismissible fade show my-0 " role="alert">
-          <strong>{{message}}</strong>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show my-0 " role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      {% endfor %}
+        </button>
+    </div>
+    {% endfor %}
     {% endif %} -->
 
-
-    <form action="/login" method="POST" class="form-signin text-center">
+    <form action="/signup" method="POST" class="form-signin text-center">
         {% csrf_token %}
-        <img class="mb-4" src="/static/notes1.jpg" alt="" width="90"
-            height="90">
-        <h1 class="h3 mb-4 font-weight-normal">Please sign in</h1>
-        <label for="username" class="float-left sr-only my-1">Username</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="float-left" style="opacity: 0;">_ </label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        <small id="emailHelp" class="form-text text-muted float-left">{% if messages %}
-            {% for message in messages %}
-            <strong>{{message}}</strong>
-            {% endfor %}
-            {% endif %}
-        </small>
-        <!-- <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
+        <img class="mb-4" src="/static/notes1.jpg" alt="" width="90" height="90">
+        <h1 class="h3 mb-3 font-weight-normal">Please enter the details</h1>
+        <div class="form-group container">
+            <label class="float-left" for="exampleInputEmail1">Select a username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp"
+                placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted float-left">{% if messages %}
+                {% for message in messages %}
+                <strong>{{message}}</strong>
+                {% endfor %}
+                {% endif %}
+            </small>
+        </div>
+        <div class="form-group container">
+            <label class="float-left" for="exampleInputPassword1">Select a password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                placeholder="Password">
+        </div>
+        <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div> -->
-        <button class="btn btn-sm btn-info btn-block mt-4" type="submit">Sign in</button>
-        <a href="/signup" class="btn btn-sm btn-info btn-block">New user? Sign Up</a>
-        <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p> -->
+        <button type="submit" class="btn btn-info">Submit</button>
     </form>
-
-
 
 </body>
 

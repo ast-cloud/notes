@@ -1,9 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from home.models import Notetable
 from datetime import datetime
 from django.contrib import messages
-
 # Create your views here.
 
 def index(request):
@@ -25,7 +24,6 @@ def index(request):
     od={'info':output,'length':l}
     return render(request, 'index.html', od)
 
-
 def newnote(request):
     if request.method=='POST':
         note=request.POST.get('note')
@@ -42,7 +40,6 @@ def delnote(request, nid):
         Notetable.objects.filter(id=nid).delete()
     return redirect('/')
 
-
 def editnote(request,nid):
     if request.method=='GET':
         editdata=Notetable.objects.filter(id=nid)
@@ -55,9 +52,6 @@ def editnote(request,nid):
         a.save()
         return redirect('/')
 
-       
-
-
 def loginuser(request):
     if request.method=='POST':
         un=request.POST.get('username')
@@ -69,9 +63,35 @@ def loginuser(request):
             return redirect('/')
             
         else:
-            return redirect('/login')
-
+            messages.error(request, 'Wrong username or password!')
+            
     return render(request,'login.html')
+
+def signup(request):
+    if request.method=='POST':
+        postedusername=request.POST.get('username')
+        User=get_user_model()
+        all=User.objects.all()
+        unique=True
+        for a in all:
+            if str(a)==postedusername:
+                unique=False
+                break
+
+        if unique==False:    
+            messages.error(request,'Username already exists.')
+            return render(request, 'signup.html')
+        else:
+            postedpassword=request.POST.get('password')
+            newuser=User(username=postedusername)
+            newuser.set_password(postedpassword)
+            newuser.save()
+            messages.success(request, 'Account created successfully. Please login now!')
+            return redirect('/')
+
+    return render(request, 'signup.html')
+    
+
 
 def logoutuser(request):
     logout(request)
