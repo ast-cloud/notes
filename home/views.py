@@ -30,7 +30,6 @@ def newnote(request):
         userid=request.user.username
         notetable=Notetable(note=note, userid=userid, dt=datetime.today())
         notetable.save()
-        messages.success(request, 'New note successfully created!')
         return redirect('/')
     
     return render(request, 'newnote.html') 
