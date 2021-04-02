@@ -92,25 +92,31 @@
         {% csrf_token %}
         <img class="mb-4" src="https://ast-cloud.github.io/notes/static/notesicon.jpg" alt="" width="90" height="90">
         <h1 class="h3 mb-3 font-weight-normal">Please enter the details</h1>
-        <!-- <div class="form-group container"> -->
-            <label class="float-left" for="exampleInputEmail1">Select a username</label>
+        <div class="form-group ">
+            <label class="float-left" for="exampleInputEmail1">Select a username (Must be unique)</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp"
                 placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted float-left">{% if messages %}
+            <!-- <small id="emailHelp" class="form-text text-muted float-left">{% if messages %}
                 {% for message in messages %}
                 <strong>{{message}}</strong>
                 {% endfor %}
                 {% endif %}
-            </small>
-        <!-- </div> -->
-        <!-- <div class="form-group container"> -->
+            </small> -->
+        </div>
+         <div class="form-group ">
             <label class="float-left" for="exampleInputPassword1">Select a password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="password"
                 placeholder="Password">
-        <!-- </div> -->
+         </div> 
+         <small id="emailHelp" class="form-text text-muted float-left">{% if messages %}
+            {% for message in messages %}
+            <strong>{{message}}</strong>
+            {% endfor %}
+            {% endif %}
+        </small>
         <!-- <div class="form-group form-check">
         </div> -->
-        <button type="submit" class="btn btn-sm btn-info">Submit</button>
+        <button type="submit" class="btn btn-sm btn-info btn-block mt-4">Submit</button>
         <a href="/" class="btn btn-sm btn-info btn-block mt-1 container">Back to login page</button>
 
     </form>
