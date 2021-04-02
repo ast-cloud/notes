@@ -136,9 +136,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 #S3 buckets config
-# AWS_ACCESS_KEY_ID = 'AKIAWAS34BZFNHTXIAWU'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'notes248'
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
+# AWS_STORAGE_BUCKET_NAME = ''
 # AWS_S3_FILE_OVERWRITE = False
 # AWS_DEFAULT_ACL = None
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
